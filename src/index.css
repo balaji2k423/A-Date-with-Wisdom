@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-ink: #070d0b;
+  --color-card: #0e1a15;
+  --color-card-2: #15261f;
+  --color-mute: #a3b3ab;
+  --color-jade: #14b87a;
+  --color-gold: #e0b94f;
+  --color-gold-lt: #f4dd9b;
+  --color-gold-dk: #b8923a;
+
+  --animate-fade-up: fade-up 0.7s ease both;
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-shine: shine 7s linear infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-18px); }
+  }
+  @keyframes shine {
+    to { background-position: 200% center; }
+  }
+}
+
+/* plain CSS helpers (always work) */
+.gold-text {
+  background-image: linear-gradient(100deg, #b8923a 0%, #f4dd9b 35%, #e0b94f 55%, #f4dd9b 75%, #b8923a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.gold-bg   { background-image: linear-gradient(135deg, #f4dd9b 0%, #e0b94f 50%, #b8923a 100%); }
+.jade-bg   { background-image: linear-gradient(135deg, #22d391 0%, #14b87a 50%, #0b8a5a 100%); }
+.gold-line { background-image: linear-gradient(90deg, transparent, #e0b94f, transparent); }
+.gold-line-l { background-image: linear-gradient(90deg, #e0b94f, transparent); }
+.gold-border-card {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#0e1a15, #0b1511) padding-box,
+    linear-gradient(145deg, rgba(244,221,155,.55), rgba(224,185,79,.08) 40%, rgba(20,184,122,.25)) border-box;
+}
+
+html { scroll-behavior: smooth; }
+body { background: #070d0b; color: #fff; font-family: var(--font-sans); }
+::selection { background: #e0b94f; color: #070d0b; }
